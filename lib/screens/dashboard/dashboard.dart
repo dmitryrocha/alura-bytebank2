@@ -1,6 +1,7 @@
 import 'package:bytebank2/models/saldo.dart';
 import 'package:bytebank2/screens/dashboard/saldo_card.dart';
 import 'package:bytebank2/screens/deposito/formulario_deposito.dart';
+import 'package:bytebank2/screens/transferencia/formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,16 +18,45 @@ class Dashboard extends StatelessWidget {
               alignment: Alignment.topCenter,
               child: SaldoCard(),
             ),
-            Consumer<Saldo>(builder: (context, saldo, child) {
-              return ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return FormularioDeposito();
-                  }));
-                },
-                child: Text("Receber depósito"),
-              );
-            })
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return FormularioDeposito();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("Receber depósito"),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return FormularioTransferencia();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("Nova transferência"),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green),
+                  ),
+                ),
+              ],
+            ),
           ],
         ));
   }
