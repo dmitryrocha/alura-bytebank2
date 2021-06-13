@@ -2,8 +2,12 @@ import 'package:bytebank2/models/saldo.dart';
 import 'package:bytebank2/screens/dashboard/saldo_card.dart';
 import 'package:bytebank2/screens/deposito/formulario_deposito.dart';
 import 'package:bytebank2/screens/transferencia/formulario.dart';
+import 'package:bytebank2/screens/transferencia/ultimas.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../transferencia/lista.dart';
+import '../transferencia/lista.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -57,6 +61,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
+            UltimasTrasnferencias(),
           ],
         ));
   }
